@@ -24,13 +24,17 @@ import org.dom4j.Element;
 import org.dom4j.io.SAXReader;
 
 
+
+
 import com.shuohe.Debug;
+import com.shuohe.util.Date;
 
 
 public class DataSpider extends Thread {
 
 	private String sessionId;
-
+//	String saveDate="";
+	
 	public DataSpider(String sessionId) {
 		this.sessionId = sessionId;
 	}
@@ -40,12 +44,26 @@ public class DataSpider extends Thread {
 		// TODO Auto-generated method stub
 		super.run();
 		while (true) {
+			
+//			String systemDate = Date.getSystemDateToString();
+//			if(!saveDate.equals(systemDate))
+//			{
+//				saveDate = systemDate;
+//				try {
+//					sendSms();
+//				} catch (Exception e) {
+//					// TODO Auto-generated catch block
+//					e.printStackTrace();
+//				}				
+//			}		
 			try {
 				sendSms();
 			} catch (Exception e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
-			}
+			}	
+			
+			
 			try {
 				sleep(10000);
 			} catch (InterruptedException e) {
@@ -59,10 +77,13 @@ public class DataSpider extends Thread {
 	public void sendSms() throws Exception {
 		String qqCode = "416501600";// qq号码
 		String urlString = "http://shaolinbus.intestcar.com/FullScreenService.svc";
-		// String xml =
-		// DataSpider.class.getClassLoader().getResource("SendInstantSms.xml").getPath()/*+"com/shuohe/GuoNengBattery/SendInstantSms.xml"*/;
-		String xml = "E:\\开发\\代码\\javaSoap\\src\\SendInstantSms.xml";
-		System.out.println("xml = " + xml);
+		
+//		File f = new File(DataSpider.class.getResource("").getFile()); 
+//		String xml = f.getPath()+"\\SendInstantSms.xml";
+		
+		String xml = "E:\\国能电池\\SendInstantSms.xml";
+		
+		System.out.println("xml 1 = " + xml);
 		String xmlFile = replace(xml, "qqCodeTmp", qqCode).getPath();
 		String soapActionString = "http://tempuri.org/FullScreenService/GetAllSerializedRealTimeCarParameter";
 		URL url = new URL(urlString);
@@ -215,22 +236,32 @@ public class DataSpider extends Thread {
 								Debug.i("时间="+aa[9]);
 								
 								GuonengDataBase.shaolingbusInsertData(
-										aa[0], 
-										Float.parseFloat(aa[2]), 
-										Float.parseFloat(aa[43]), 
-										Float.parseFloat(aa[63]), 
-										Float.parseFloat(aa[64]), 
-										Double.parseDouble(aa[12]), 
-										Double.parseDouble(aa[14]) 
+									aa[0], 
+									Float.parseFloat(aa[2]), 
+									Float.parseFloat(aa[43]), 
+									Float.parseFloat(aa[63]), 
+									Float.parseFloat(aa[64]), 
+									Double.parseDouble(aa[12]), 
+									Double.parseDouble(aa[14]) 
+								);
+								
+								GuonengDataBase.shaolingbusUpdateData(
+									aa[0], 
+									Float.parseFloat(aa[2]), 
+									Float.parseFloat(aa[43]), 
+									Float.parseFloat(aa[63]), 
+									Float.parseFloat(aa[64]), 
+									Double.parseDouble(aa[12]), 
+									Double.parseDouble(aa[14]) 
 								);
 								ShaolinBus shaolinBus = new ShaolinBus(
-										aa[0], 
-										Float.parseFloat(aa[2]), 
-										Float.parseFloat(aa[43]), 
-										Float.parseFloat(aa[63]), 
-										Float.parseFloat(aa[64]), 
-										Double.parseDouble(aa[12]), 
-										Double.parseDouble(aa[14]) 										
+									aa[0], 
+									Float.parseFloat(aa[2]), 
+									Float.parseFloat(aa[43]), 
+									Float.parseFloat(aa[63]), 
+									Float.parseFloat(aa[64]), 
+									Double.parseDouble(aa[12]), 
+									Double.parseDouble(aa[14]) 										
 								);
 								ShaoLinBusDataList.getInstance().set(shaolinBus);
 								

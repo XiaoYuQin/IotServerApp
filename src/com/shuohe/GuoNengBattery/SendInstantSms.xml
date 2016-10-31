@@ -2,22 +2,51 @@
    <soapenv:Header/>
    <soapenv:Body>
       <tem:GetAllSerializedRealTimeCarParameter>
-         <!--Optional:-->
          <tem:terminals>
-            <!--Zero or more repetitions:-->
             <ful:RealTimeTerminaItem>
-               <!--Optional:-->
                <ful:HasDbcParameter>true</ful:HasDbcParameter>
-               <!--Optional:-->
-               <ful:TerminalCode>50007435</ful:TerminalCode>
-            </ful:RealTimeTerminaItem>
-              <ful:RealTimeTerminaItem>
-               <!--Optional:-->
+               <ful:TerminalCode>50007445</ful:TerminalCode>
+            </ful:RealTimeTerminaItem>      
+            <ful:RealTimeTerminaItem>
                <ful:HasDbcParameter>true</ful:HasDbcParameter>
-               <!--Optional:-->
-               <ful:TerminalCode>50022442</ful:TerminalCode>
+               <ful:TerminalCode>50007556</ful:TerminalCode>
             </ful:RealTimeTerminaItem>
-
+            <ful:RealTimeTerminaItem>
+               <ful:HasDbcParameter>true</ful:HasDbcParameter>
+               <ful:TerminalCode>50007555</ful:TerminalCode>
+            </ful:RealTimeTerminaItem>
+            <ful:RealTimeTerminaItem>
+               <ful:HasDbcParameter>true</ful:HasDbcParameter>
+               <ful:TerminalCode>50007550</ful:TerminalCode>
+            </ful:RealTimeTerminaItem>
+            <ful:RealTimeTerminaItem>
+               <ful:HasDbcParameter>true</ful:HasDbcParameter>
+               <ful:TerminalCode>50007450</ful:TerminalCode>
+            </ful:RealTimeTerminaItem>
+            <ful:RealTimeTerminaItem>
+               <ful:HasDbcParameter>true</ful:HasDbcParameter>
+               <ful:TerminalCode>50007444</ful:TerminalCode>
+            </ful:RealTimeTerminaItem>
+            <ful:RealTimeTerminaItem>
+               <ful:HasDbcParameter>true</ful:HasDbcParameter>
+               <ful:TerminalCode>50007449</ful:TerminalCode>
+            </ful:RealTimeTerminaItem>
+            <ful:RealTimeTerminaItem>
+               <ful:HasDbcParameter>true</ful:HasDbcParameter>
+               <ful:TerminalCode>50007447</ful:TerminalCode>
+            </ful:RealTimeTerminaItem>
+            <ful:RealTimeTerminaItem>
+               <ful:HasDbcParameter>true</ful:HasDbcParameter>
+               <ful:TerminalCode>50007446</ful:TerminalCode>
+            </ful:RealTimeTerminaItem>
+            <ful:RealTimeTerminaItem>
+               <ful:HasDbcParameter>true</ful:HasDbcParameter>
+               <ful:TerminalCode>50007443</ful:TerminalCode>
+            </ful:RealTimeTerminaItem>
+            <ful:RealTimeTerminaItem>
+               <ful:HasDbcParameter>true</ful:HasDbcParameter>
+               <ful:TerminalCode>50007438</ful:TerminalCode>
+            </ful:RealTimeTerminaItem>     
          </tem:terminals>
       </tem:GetAllSerializedRealTimeCarParameter>
    </soapenv:Body>

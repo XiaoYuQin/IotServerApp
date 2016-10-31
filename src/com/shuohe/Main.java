@@ -7,6 +7,7 @@ import javax.swing.JFrame;
 import com.shuohe.GuoNengBattery.DataSpider;
 import com.shuohe.GuoNengBattery.GuonengSpider;
 import com.shuohe.GuoNengBattery.LoginSpider;
+import com.shuohe.ServerMonitor.ServerMonitor;
 
 public class Main {
 
@@ -21,6 +22,7 @@ public class Main {
 				try {
 					Main window = new Main();
 					window.frame.setVisible(true);
+										
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
@@ -32,6 +34,9 @@ public class Main {
 		GuonengSpider guonengSpider = new GuonengSpider();
 		guonengSpider.start();
 		
+		
+		ServerMonitor serverMonitor = new ServerMonitor();
+		serverMonitor.start();
 	}
 
 	/**
@@ -49,5 +54,7 @@ public class Main {
 		frame.setBounds(100, 100, 450, 300);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	}
+	
+	
 
 }

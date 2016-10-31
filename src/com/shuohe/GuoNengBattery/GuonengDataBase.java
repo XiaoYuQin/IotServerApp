@@ -33,6 +33,34 @@ public class GuonengDataBase {
             return false;
         } 
 	}
+	
+	public static boolean shaolingbusUpdateData(String carid,float gpsSignal,float soc,float batteryVoltage,float batteryCurrent,double gpsLongitude,double gpsLatitude) 
+	{
+	    String sql = null;  
+	    DBhelper db1 = null;  
+		sql = "update shaolinBusRealtime set "
+//				+ "carID="+carid+","
+				+ "gpsSignal="+"'"+String.valueOf(gpsSignal)+"'"+","
+				+ "soc="+"'"+String.valueOf(soc)+"'"+","
+				+ "batteryVoltage="+"'"+String.valueOf(batteryVoltage)+"'"+","
+				+ "batteryCurrent="+"'"+String.valueOf(batteryCurrent)+"'"+","
+				+ "gpsLongitude="+"'"+String.valueOf(gpsLongitude)+"'"+","
+				+ "gpsLatitude="+"'"+String.valueOf(gpsLatitude)+"'"+","
+				+ "date="+"'"+getSystemDateToString()+"'"+" "
+				+ "where carID="+"'"+carid+"'";
+
+		 System.out.println(sql);
+        db1 = new DBhelper(sql);//创建DBHelper对象  
+        try {  
+            boolean ret = db1.pst.execute();//执行语句，得到结果集         
+            db1.close();//关闭连接        
+            return true;
+        } catch (SQLException e) {  
+            e.printStackTrace();  
+            return false;
+        } 
+	}
+	
 	/**
 	 * 获得系统时间
 	 * @author    秦晓宇
